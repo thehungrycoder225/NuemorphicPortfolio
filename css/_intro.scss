@@ -1,0 +1,132 @@
+.main-header {
+    background: $grey;
+}
+
+nav {
+    @include flex(space-between, center, row);
+    min-height: 10vh;
+    flex-wrap: wrap;
+    width: 90%;
+    margin: auto;
+
+    .logo {
+        @include flex(start, center, row);
+        flex: 5 1 40rem;
+
+
+        a {
+            border-radius: 100%;
+            width: 5rem;
+            height: 5rem;
+            box-shadow: -2px -2px 5px $light,
+                2px 2px 5px $dark;
+
+            &:focus,
+            &:hover {
+                @include neu-outline($dark, $light);
+                outline: none;
+
+
+            }
+
+            &:active {
+                box-shadow: inset -2px -2px 5px $light,
+                    inset 2px 2px 5px $dark;
+            }
+
+            z-index: 1;
+        }
+
+        img {
+            transform: translate(45%, 30%);
+            width: 3rem;
+            height: 3rem;
+            align-items: center;
+            z-index: -1;
+
+        }
+
+
+        h1 {
+            margin: 2rem;
+            font-family: 'GoogleSans', sans-serif;
+            font-size: 2rem;
+            color: $pink-1;
+        }
+    }
+
+    ul {
+        @include flex(space-around, center, row);
+        @include neu-outline($dark, $light);
+        flex: 1 1 40rem;
+        border: 1px solid $light;
+        padding: 1.8rem 1.5rem;
+        margin: 0 1rem 0 0;
+        border-radius: 1rem;
+
+
+
+        a {
+            color: $blue;
+            font-size: 1.5rem;
+            font-family: 'GoogleSans', sans-serif;
+            border-radius: 1rem;
+            padding: 1rem 6rem;
+
+            &:focus,
+            &:hover {
+                @include neu-focus($light, $dark, $dark, $light);
+            }
+
+            &:active {
+                box-shadow: inset -2px -2px 5px $light,
+                    inset 2px 2px 5px $dark;
+            }
+        }
+    }
+}
+
+.active {
+    color: $pink-1;
+    box-shadow: -2px -5px 10px $light,
+        5px 5px 10px $dark;
+}
+
+hr {
+    min-height: 1.5rem;
+    background: linear-gradient(to right, $blue, $orange-2, $pink-1, $purple);
+    background-size: 400% 400%;
+    border: none;
+    animation: bgAnimate 10s infinite ease-in-out;
+    @include neu-outline($dark, $light);
+}
+
+.intro {
+    min-height: 90vh;
+
+    .intro-text {
+        width: 90%;
+        margin: auto;
+
+        @include flex (center, space-around, row) h1 {
+            color: $orange-2;
+            font-family: 'HeadingPro';
+            font-size: 10rem;
+            letter-spacing: 3rem;
+        }
+    }
+}
+
+@keyframes bgAnimate {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}

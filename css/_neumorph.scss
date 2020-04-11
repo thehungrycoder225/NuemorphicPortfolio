@@ -1,0 +1,30 @@
+@mixin neu-normal($color-shadow1, $color-shadow2) {
+    box-shadow: 5px 5px 10px $color-shadow1,
+        -5px -5px 10px $color-shadow2;
+}
+
+@mixin neu-focus($color1, $color2, $color-shadow1, $color-shadow2) {
+    background: linear-gradient(145deg, rgba($color:$color1, $alpha:0.7), rgba($color:$color2, $alpha: 0.3));
+    box-shadow: 2px 2px 5px $color-shadow1,
+        -2px -2px 5px $color-shadow2;
+    outline: none;
+}
+
+@mixin neu-elevate ($color1, $color2, $color-shadow1, $color-shadow2) {
+    background: linear-gradient(145deg, rgba($color:$color1, $alpha: 0.5), rgba($color:$color2, $alpha: 0.5));
+    box-shadow: 2px 2px 5px $color-shadow1,
+        -2px -2px 5px $color-shadow2;
+}
+
+@mixin neu-pressed ($color-shadow1, $color-shadow2) {
+    box-shadow: inset 5px 5px 10px $color-shadow1,
+        inset -5px -5px 10px $color-shadow2;
+
+}
+
+@mixin neu-outline ($color-shadow1, $color-shadow2) {
+    box-shadow: 5px 5px 10px $color-shadow1,
+        -5px -5px 10px $color-shadow2,
+        inset -2px -2px 5px $color-shadow2,
+        inset 2px 2px 5px $color-shadow1;
+}
