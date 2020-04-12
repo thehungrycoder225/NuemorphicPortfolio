@@ -75,7 +75,7 @@ nav {
 
             &:focus,
             &:hover {
-                @include neu-focus($light, $dark, $dark, $light);
+                @include neu-focus($light, $grey, $dark, $light);
             }
 
             &:active {
@@ -97,24 +97,53 @@ hr {
     background: linear-gradient(to right, $blue, $orange-2, $pink-1, $purple);
     background-size: 400% 400%;
     border: none;
+    border-radius: 2rem;
     animation: bgAnimate 10s infinite ease-in-out;
     @include neu-outline($dark, $light);
 }
 
 .intro {
     min-height: 90vh;
+    flex-wrap: wrap;
+    margin: auto;
+    width: 90%;
+    @include flex (center, space-between, row);
 
-    .intro-text {
-        width: 90%;
-        margin: auto;
-
-        @include flex (center, space-around, row) h1 {
-            color: $orange-2;
-            font-family: 'HeadingPro';
-            font-size: 10rem;
-            letter-spacing: 3rem;
-        }
+    h1 {
+        padding: 2rem 0 0 0;
+        color: $orange-2;
+        font-family: 'HeadingPro';
+        font-size: 10rem;
+        letter-spacing: 3rem;
+        margin: 1rem;
+        display: inline-block;
+        animation: monitorChange 10s linear infinite alternate;
     }
+
+}
+
+.intro-text,
+.intro-img {
+    flex: 1 1 40rem;
+    padding: 15rem 0;
+}
+
+#Head {
+    animation: headMove 1s linear infinite alternate;
+    transform-origin: bottom;
+}
+
+#Hand {
+    animation: handMove 1s linear infinite alternate 1.5s;
+    transform-origin: bottom;
+}
+
+#Monitor1,
+#Monitor2,
+#Monitor3,
+#Monitor4,
+#Monitor5 {
+    animation: monitorChange 10s linear infinite alternate;
 }
 
 @keyframes bgAnimate {
@@ -128,5 +157,39 @@ hr {
 
     100% {
         background-position: 0% 50%;
+    }
+}
+
+@keyframes headMove {
+    from {
+        transform: rotateZ(-1deg);
+    }
+
+    to {
+        transform: rotateZ(1deg);
+    }
+}
+
+@keyframes handMove {
+    from {
+        transform: translate(-1%);
+    }
+
+    to {
+        transform: translate(0);
+    }
+}
+
+@keyframes monitorChange {
+    0% {
+        filter: hue-rotate(0deg);
+    }
+
+    50% {
+        filter: hue-rotate(100deg);
+    }
+
+    100% {
+        filter: hue-rotate(0deg);
     }
 }

@@ -166,7 +166,7 @@ nav ul a {
 }
 
 nav ul a:focus, nav ul a:hover {
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.7), rgba(44, 44, 44, 0.3));
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.7), rgba(210, 210, 210, 0.3));
   -webkit-box-shadow: 2px 2px 5px #2c2c2c, -2px -2px 5px #ffffff;
           box-shadow: 2px 2px 5px #2c2c2c, -2px -2px 5px #ffffff;
   outline: none;
@@ -189,6 +189,7 @@ hr {
   background: linear-gradient(to right, #0D469D, #FB7B6B, #D7385E, #6D54A9);
   background-size: 400% 400%;
   border: none;
+  border-radius: 2rem;
   -webkit-animation: bgAnimate 10s infinite ease-in-out;
           animation: bgAnimate 10s infinite ease-in-out;
   -webkit-box-shadow: 5px 5px 10px #2c2c2c, -5px -5px 10px #ffffff, inset -2px -2px 5px #ffffff, inset 2px 2px 5px #2c2c2c;
@@ -197,31 +198,66 @@ hr {
 
 .intro {
   min-height: 90vh;
-}
-
-.intro .intro-text {
-  width: 90%;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   margin: auto;
+  width: 90%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: space-around;
-      -ms-flex-align: space-around;
-          align-items: space-around;
+  -webkit-box-align: space-between;
+      -ms-flex-align: space-between;
+          align-items: space-between;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
 }
 
-.intro .intro-text h1 {
+.intro h1 {
+  padding: 2rem 0 0 0;
   color: #FB7B6B;
   font-family: 'HeadingPro';
   font-size: 10rem;
   letter-spacing: 3rem;
+  margin: 1rem;
+  display: inline-block;
+  -webkit-animation: monitorChange 10s linear infinite alternate;
+          animation: monitorChange 10s linear infinite alternate;
+}
+
+.intro-text,
+.intro-img {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 40rem;
+          flex: 1 1 40rem;
+  padding: 15rem 0;
+}
+
+#Head {
+  -webkit-animation: headMove 1s linear infinite alternate;
+          animation: headMove 1s linear infinite alternate;
+  -webkit-transform-origin: bottom;
+          transform-origin: bottom;
+}
+
+#Hand {
+  -webkit-animation: handMove 1s linear infinite alternate 1.5s;
+          animation: handMove 1s linear infinite alternate 1.5s;
+  -webkit-transform-origin: bottom;
+          transform-origin: bottom;
+}
+
+#Monitor1,
+#Monitor2,
+#Monitor3,
+#Monitor4,
+#Monitor5 {
+  -webkit-animation: monitorChange 10s linear infinite alternate;
+          animation: monitorChange 10s linear infinite alternate;
 }
 
 @-webkit-keyframes bgAnimate {
@@ -245,6 +281,80 @@ hr {
   }
   100% {
     background-position: 0% 50%;
+  }
+}
+
+@-webkit-keyframes headMove {
+  from {
+    -webkit-transform: rotateZ(-1deg);
+            transform: rotateZ(-1deg);
+  }
+  to {
+    -webkit-transform: rotateZ(1deg);
+            transform: rotateZ(1deg);
+  }
+}
+
+@keyframes headMove {
+  from {
+    -webkit-transform: rotateZ(-1deg);
+            transform: rotateZ(-1deg);
+  }
+  to {
+    -webkit-transform: rotateZ(1deg);
+            transform: rotateZ(1deg);
+  }
+}
+
+@-webkit-keyframes handMove {
+  from {
+    -webkit-transform: translate(-1%);
+            transform: translate(-1%);
+  }
+  to {
+    -webkit-transform: translate(0);
+            transform: translate(0);
+  }
+}
+
+@keyframes handMove {
+  from {
+    -webkit-transform: translate(-1%);
+            transform: translate(-1%);
+  }
+  to {
+    -webkit-transform: translate(0);
+            transform: translate(0);
+  }
+}
+
+@-webkit-keyframes monitorChange {
+  0% {
+    -webkit-filter: hue-rotate(0deg);
+            filter: hue-rotate(0deg);
+  }
+  50% {
+    -webkit-filter: hue-rotate(100deg);
+            filter: hue-rotate(100deg);
+  }
+  100% {
+    -webkit-filter: hue-rotate(0deg);
+            filter: hue-rotate(0deg);
+  }
+}
+
+@keyframes monitorChange {
+  0% {
+    -webkit-filter: hue-rotate(0deg);
+            filter: hue-rotate(0deg);
+  }
+  50% {
+    -webkit-filter: hue-rotate(100deg);
+            filter: hue-rotate(100deg);
+  }
+  100% {
+    -webkit-filter: hue-rotate(0deg);
+            filter: hue-rotate(0deg);
   }
 }
 
